@@ -1,0 +1,5 @@
+C:\Users\eshum\Documents\Blend for Visual Studio 2019\Projects\MathMage\obj\Debug\net5.0-windows\MathMage.csproj.AssemblyReference.cache
+C:\Users\eshum\Documents\Blend for Visual Studio 2019\Projects\MathMage\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\eshum\Documents\Blend for Visual Studio 2019\Projects\MathMage\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\eshum\Documents\Blend for Visual Studio 2019\Projects\MathMage\obj\Debug\net5.0-windows\MathMage_MarkupCompile.cache
+C:\Users\eshum\Documents\Blend for Visual Studio 2019\Projects\MathMage\obj\Debug\net5.0-windows\MathMage_MarkupCompile.lref
