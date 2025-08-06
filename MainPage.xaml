@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="MathMage.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MathMage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ScrollViewer x:Name="DisplayScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+        <Grid x:Name="DisplayGrid" Width="300" Height="300" RenderTransformOrigin="0.5,0.5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel HorizontalAlignment="Center" Grid.Row="0">
+                <TextBlock Text="Math Mage" FontSize="30" FontStyle="Italic" FontWeight="Bold" Margin="15"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Canvas x:Name="DisplayCanvas" Width="180" Height="180" Grid.Row="1">
+                    <StackPanel Width="180" Canvas.Left="18" Canvas.Top="45">
+                        <TextBlock x:Name="MathMageIntro1" TextAlignment="Left" TextWrapping="NoWrap" FontSize="12" FontFamily="Consolas"/>
+                    </StackPanel>
+                </Canvas>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
+                <Button x:Name="AButton" Width="30" Height="30" Margin="30">
+                    <Button.Content>
+                        <Canvas Width="30" Height="30">
+                            <TextBlock x:Name="AButtonText" Text="Accept" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
+                            <TextBlock x:Name="AButtonSymbol" Text="a" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
+                            <TextBlock x:Name="AButtonHotkey" Text="A" FontSize="9" FontWeight="Bold" Canvas.Left="0" Canvas.Top="0"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="SButton" Width="30" Height="30" Margin="30">
+                    <Button.Content>
+                        <Canvas Width="30" Height="30">
+                            <TextBlock x:Name="SButtonText" Text="Support" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
+                            <TextBlock x:Name="SButtonSymbol" Text="s" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
+                            <TextBlock x:Name="SButtonHotkey" Text="S" FontSize="9" FontWeight="Bold" Canvas.Left="0" Canvas.Top="0"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="DButton" Width="30" Height="30" Margin="30">
+                    <Button.Content>
+                        <Canvas Width="30" Height="30">
+                            <TextBlock x:Name="DButtonText" Text="Discrete" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
+                            <TextBlock x:Name="DButtonSymbol" Text="d" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
+                            <TextBlock x:Name="DButtonHotkey" Text="D" FontSize="9" FontWeight="Bold" Canvas.Left="0" Canvas.Top="0"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

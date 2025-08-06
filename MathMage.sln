@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36227.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathMage", "MathMage.csproj", "{5E2B8FB7-813F-4837-980F-FD6700A77861}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E2B8FB7-813F-4837-980F-FD6700A77861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E2B8FB7-813F-4837-980F-FD6700A77861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E2B8FB7-813F-4837-980F-FD6700A77861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E2B8FB7-813F-4837-980F-FD6700A77861}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05B15BAF-4C43-440E-9BB6-0EB7614283A4}
+	EndGlobalSection
+EndGlobal
