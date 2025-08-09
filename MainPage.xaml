@@ -19,7 +19,7 @@
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <Canvas x:Name="DisplayCanvas" Width="180" Height="180" Grid.Row="1">
                     <StackPanel Width="180" Canvas.Left="18" Canvas.Top="45">
-                        <TextBlock x:Name="MathMageIntro1" TextAlignment="Left" TextWrapping="NoWrap" FontSize="12" FontFamily="Consolas"/>
+                        <TextBlock x:Name="GraphicsTextBlock" TextAlignment="Left" TextWrapping="NoWrap" FontSize="12" FontFamily="Consolas"/>
                     </StackPanel>
                 </Canvas>
             </StackPanel>
