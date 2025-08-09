@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 
 namespace MathMage
@@ -568,7 +570,37 @@ Noooooooooooooooooo!""";
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Window.Current.KeyDown += Current_KeyDown;
             CurrentLevel();
+        }
+
+        private void Current_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case VirtualKey.A:
+                    AButton_Click(AButton, null);
+                    break;
+                case VirtualKey.S:
+                    SButton_Click(SButton, null);
+                    break;
+                case VirtualKey.D:
+                    DButton_Click(DButton, null);
+                    break;
+            }
+        }
+
+        private void AButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void SButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

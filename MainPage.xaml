@@ -24,7 +24,7 @@
                 </Canvas>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
-                <Button x:Name="AButton" Width="30" Height="30" Margin="30">
+                <Button x:Name="AButton" Width="30" Height="30" Margin="30" Click="AButton_Click">
                     <Button.Content>
                         <Canvas Width="30" Height="30">
                             <TextBlock x:Name="AButtonText" Text="Accept" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
@@ -33,7 +33,7 @@
                         </Canvas>
                     </Button.Content>
                 </Button>
-                <Button x:Name="SButton" Width="30" Height="30" Margin="30">
+                <Button x:Name="SButton" Width="30" Height="30" Margin="30" Click="SButton_Click">
                     <Button.Content>
                         <Canvas Width="30" Height="30">
                             <TextBlock x:Name="SButtonText" Text="Support" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
@@ -42,7 +42,7 @@
                         </Canvas>
                     </Button.Content>
                 </Button>
-                <Button x:Name="DButton" Width="30" Height="30" Margin="30">
+                <Button x:Name="DButton" Width="30" Height="30" Margin="30" Click="DButton_Click">
                     <Button.Content>
                         <Canvas Width="30" Height="30">
                             <TextBlock x:Name="DButtonText" Text="Discrete" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
