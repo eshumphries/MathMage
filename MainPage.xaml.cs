@@ -15,6 +15,7 @@ namespace MathMage
     {
         public string mageIntro1, mageIntro2, spiderSpeech1, spiderSpeech2, snakeSpeech1, snakeSpeech2, batSpeech1, batSpeech2, blobSpeech1, blobSpeech2, goblinSpeech1, goblinSpeech2, ghostSpeech1, ghostSpeech2, skeletonSpeech1, skeletonSpeech2, mawSpeech1, mawSpeech2, knightSpeech1, knightSpeech2, trollSpeech1, trollSpeech2, golemSpeech1, golemSpeech2, mageSpeech1, mageSpeech2, room;
         public double level;
+        public int asdLevel;
         public MainPage()
         {
             InitializeComponent();
@@ -275,6 +276,7 @@ Noooooooooooooooooo!""";
 |  ||__|_|__|_|__||  | 
 | /  __?__?__=___  \ | 
 |/__________________\|";
+            asdLevel = 111;
             level = 0.0;
             Page_Loaded(null, null);
         }
@@ -300,16 +302,16 @@ Noooooooooooooooooo!""";
 
             return asciiStringBuilder.ToString();
         }
-        public void CurrentLevel()
+        public void CurrentLevel(double level)
         {
             string levelGraphics = "";
 
             switch (level)
             {
-                case 0.0:
+                case 0.1:
                     levelGraphics = mageIntro1;
                     break;
-                case 0.1:
+                case 0.2:
                     levelGraphics = mageIntro2;
                     break;
                 case 1.0:
@@ -571,7 +573,7 @@ Noooooooooooooooooo!""";
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Window.Current.KeyDown += Current_KeyDown;
-            CurrentLevel();
+            CurrentLevel(0.0);
         }
 
         private void Current_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -592,15 +594,261 @@ Noooooooooooooooooo!""";
 
         private void AButton_Click(object sender, RoutedEventArgs e)
         {
+            switch (asdLevel)
+            {
+                case 111:
+                    CurrentLevel(0.1);
+                    break;
+                case 112:
 
+                    break;
+                case 113:
+
+                    break;
+                case 121:
+
+                    break;
+                case 122:
+
+                    break;
+                case 123:
+
+                    break;
+                case 131:
+
+                    break;
+                case 132:
+
+                    break;
+                case 133:
+
+                    break;
+                case 211:
+
+                    break;
+                case 212:
+
+                    break;
+                case 213:
+
+                    break;
+                case 221:
+
+                    break;
+                case 222:
+
+                    break;
+                case 223:
+
+                    break;
+                case 232:
+
+                    break;
+                case 233:
+
+                    break;
+                case 311:
+
+                    break;
+                case 312:
+
+                    break;
+                case 313:
+
+                    break;
+                case 321:
+
+                    break;
+                case 322:
+
+                    break;
+                case 323:
+
+                    break;
+                case 331:
+
+                    break;
+                case 332:
+
+                    break;
+                case 333:
+
+                    break;
+            }
+
+            asdLevel += 100;
         }
         private void SButton_Click(object sender, RoutedEventArgs e)
         {
+            switch (asdLevel)
+            {
+                case 111:
 
+                    break;
+                case 112:
+
+                    break;
+                case 113:
+
+                    break;
+                case 121:
+
+                    break;
+                case 122:
+
+                    break;
+                case 123:
+
+                    break;
+                case 131:
+
+                    break;
+                case 132:
+
+                    break;
+                case 133:
+
+                    break;
+                case 211:
+
+                    break;
+                case 212:
+
+                    break;
+                case 213:
+
+                    break;
+                case 221:
+
+                    break;
+                case 222:
+
+                    break;
+                case 223:
+
+                    break;
+                case 232:
+
+                    break;
+                case 233:
+
+                    break;
+                case 311:
+
+                    break;
+                case 312:
+
+                    break;
+                case 313:
+
+                    break;
+                case 321:
+
+                    break;
+                case 322:
+
+                    break;
+                case 323:
+
+                    break;
+                case 331:
+
+                    break;
+                case 332:
+
+                    break;
+                case 333:
+
+                    break;
+            }
+
+            asdLevel += 10;
         }
         private void DButton_Click(object sender, RoutedEventArgs e)
         {
+            switch (asdLevel)
+            {
+                case 111:
 
+                    break;
+                case 112:
+
+                    break;
+                case 113:
+
+                    break;
+                case 121:
+
+                    break;
+                case 122:
+
+                    break;
+                case 123:
+
+                    break;
+                case 131:
+
+                    break;
+                case 132:
+
+                    break;
+                case 133:
+
+                    break;
+                case 211:
+
+                    break;
+                case 212:
+
+                    break;
+                case 213:
+
+                    break;
+                case 221:
+
+                    break;
+                case 222:
+
+                    break;
+                case 223:
+
+                    break;
+                case 232:
+
+                    break;
+                case 233:
+
+                    break;
+                case 311:
+
+                    break;
+                case 312:
+
+                    break;
+                case 313:
+
+                    break;
+                case 321:
+
+                    break;
+                case 322:
+
+                    break;
+                case 323:
+
+                    break;
+                case 331:
+
+                    break;
+                case 332:
+
+                    break;
+                case 333:
+
+                    break;
+            }
+
+            asdLevel += 1;
         }
     }
 }

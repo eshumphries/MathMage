@@ -27,8 +27,8 @@
                 <Button x:Name="AButton" Width="30" Height="30" Margin="30" Click="AButton_Click">
                     <Button.Content>
                         <Canvas Width="30" Height="30">
-                            <TextBlock x:Name="AButtonText" Text="Accept" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
-                            <TextBlock x:Name="AButtonSymbol" Text="a" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
+                            <TextBlock x:Name="AButtonText" Text="Play" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
+                            <TextBlock x:Name="AButtonSymbol" Text="4" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
                             <TextBlock x:Name="AButtonHotkey" Text="A" FontSize="9" FontWeight="Bold" Canvas.Left="0" Canvas.Top="0"/>
                         </Canvas>
                     </Button.Content>
@@ -36,7 +36,7 @@
                 <Button x:Name="SButton" Width="30" Height="30" Margin="30" Click="SButton_Click">
                     <Button.Content>
                         <Canvas Width="30" Height="30">
-                            <TextBlock x:Name="SButtonText" Text="Support" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
+                            <TextBlock x:Name="SButtonText" Text="Help" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
                             <TextBlock x:Name="SButtonSymbol" Text="s" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
                             <TextBlock x:Name="SButtonHotkey" Text="S" FontSize="9" FontWeight="Bold" Canvas.Left="0" Canvas.Top="0"/>
                         </Canvas>
@@ -45,8 +45,8 @@
                 <Button x:Name="DButton" Width="30" Height="30" Margin="30" Click="DButton_Click">
                     <Button.Content>
                         <Canvas Width="30" Height="30">
-                            <TextBlock x:Name="DButtonText" Text="Discrete" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
-                            <TextBlock x:Name="DButtonSymbol" Text="d" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
+                            <TextBlock x:Name="DButtonText" Text="Options" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
+                            <TextBlock x:Name="DButtonSymbol" Text="¼" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
                             <TextBlock x:Name="DButtonHotkey" Text="D" FontSize="9" FontWeight="Bold" Canvas.Left="0" Canvas.Top="0"/>
                         </Canvas>
                     </Button.Content>
