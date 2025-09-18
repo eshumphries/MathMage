@@ -14,7 +14,7 @@ namespace MathMage
     public partial class MainPage : Page
     {
         public string mageIntro1, mageIntro2, spiderSpeech1, spiderSpeech2, snakeSpeech1, snakeSpeech2, batSpeech1, batSpeech2, blobSpeech1, blobSpeech2, goblinSpeech1, goblinSpeech2, ghostSpeech1, ghostSpeech2, skeletonSpeech1, skeletonSpeech2, mawSpeech1, mawSpeech2, knightSpeech1, knightSpeech2, trollSpeech1, trollSpeech2, golemSpeech1, golemSpeech2, mageSpeech1, mageSpeech2, room;
-        public double level;
+        public double gameLevel;
         public int asdLevel;
         public MainPage()
         {
@@ -272,12 +272,12 @@ Noooooooooooooooooo!""";
 | \ ______________ / | 
 |  |              |  | 
 |  | __   __   __ |  | 
-|  ||  | |  | |  ||  | 
+|  ||. | |. | |. ||  | 
 |  ||__|_|__|_|__||  | 
 | /  __?__?__=___  \ | 
 |/__________________\|";
             asdLevel = 111;
-            level = 0.0;
+            gameLevel = 1.1;
             Page_Loaded(null, null);
         }
         private void DisplayScrollViewer_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -302,7 +302,210 @@ Noooooooooooooooooo!""";
 
             return asciiStringBuilder.ToString();
         }
-        public void CurrentLevel(double level)
+
+        public StringBuilder Randomizer(StringBuilder stringBuild)
+        {
+            Random randNum = new Random();
+            int levelInt = (int)gameLevel;
+
+            stringBuild.Replace(" ", randNum.Next(0, levelInt + 1).ToString(), 83, 1);
+            stringBuild.Replace(" ", randNum.Next(0, levelInt + 1).ToString(), 88, 1);
+            stringBuild.Replace(" ", randNum.Next(0, levelInt + 1).ToString(), 93, 1);
+
+            return stringBuild;
+        }
+        private void LevelMath(double level)
+        {
+            StringBuilder roomStringBuilder = new StringBuilder();
+            roomStringBuilder.Append(room);
+
+            switch (level)
+            {
+                case 1.1:
+                    Randomizer(roomStringBuilder);
+                    break;
+                case 1.2:
+
+                    break;
+                case 1.3:
+
+                    break;
+                case 1.4:
+
+                    break;
+                case 1.5:
+
+                    break;
+                case 2.1:
+
+                    break;
+                case 2.2:
+
+                    break;
+                case 2.3:
+
+                    break;
+                case 2.4:
+
+                    break;
+                case 2.5:
+
+                    break;
+                case 3.1:
+
+                    break;
+                case 3.2:
+
+                    break;
+                case 3.3:
+
+                    break;
+                case 3.4:
+
+                    break;
+                case 3.5:
+
+                    break;
+                case 4.1:
+
+                    break;
+                case 4.2:
+
+                    break;
+                case 4.3:
+
+                    break;
+                case 4.4:
+
+                    break;
+                case 4.5:
+
+                    break;
+                case 5.1:
+
+                    break;
+                case 5.2:
+
+                    break;
+                case 5.3:
+
+                    break;
+                case 5.4:
+
+                    break;
+                case 5.5:
+
+                    break;
+                case 6.1:
+
+                    break;
+                case 6.2:
+
+                    break;
+                case 6.3:
+
+                    break;
+                case 6.4:
+
+                    break;
+                case 6.5:
+
+                    break;
+                case 7.1:
+
+                    break;
+                case 7.2:
+
+                    break;
+                case 7.3:
+
+                    break;
+                case 7.4:
+
+                    break;
+                case 7.5:
+
+                    break;
+                case 8.1:
+
+                    break;
+                case 8.2:
+
+                    break;
+                case 8.3:
+
+                    break;
+                case 8.4:
+
+                    break;
+                case 8.5:
+
+                    break;
+                case 9.1:
+
+                    break;
+                case 9.2:
+
+                    break;
+                case 9.3:
+
+                    break;
+                case 9.4:
+
+                    break;
+                case 9.5:
+
+                    break;
+                case 10.1:
+
+                    break;
+                case 10.2:
+
+                    break;
+                case 10.3:
+
+                    break;
+                case 10.4:
+
+                    break;
+                case 10.5:
+
+                    break;
+                case 11.1:
+
+                    break;
+                case 11.2:
+
+                    break;
+                case 11.3:
+
+                    break;
+                case 11.4:
+
+                    break;
+                case 11.5:
+
+                    break;
+                case 12.1:
+
+                    break;
+                case 12.2:
+
+                    break;
+                case 12.3:
+
+                    break;
+                case 12.4:
+
+                    break;
+                case 12.5:
+
+                    break;
+            }
+
+            room = roomStringBuilder.ToString();
+        }
+        public void DisplayLevel(double level)
         {
             string levelGraphics = "";
 
@@ -568,12 +771,13 @@ Noooooooooooooooooo!""";
                     break;
             }
 
+            LevelMath(gameLevel);
             GraphicsTextBlock.Text = StringCorrector(levelGraphics);
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Window.Current.KeyDown += Current_KeyDown;
-            CurrentLevel(0.0);
+            DisplayLevel(gameLevel);
         }
 
         private void Current_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -597,7 +801,7 @@ Noooooooooooooooooo!""";
             switch (asdLevel)
             {
                 case 111:
-                    CurrentLevel(0.1);
+                    DisplayLevel(0.1);
                     break;
                 case 112:
 
