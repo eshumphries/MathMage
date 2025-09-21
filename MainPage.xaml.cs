@@ -268,13 +268,13 @@ the mighty Math Mage!
 Noooooooooooooooooo!""";
             room = @"
  ____________________  
-|\                  /| 
+|\ Goal: 3-6        /| 
 | \ ______________ / | 
 |  |              |  | 
 |  | __   __   __ |  | 
 |  ||. | |. | |. ||  | 
 |  ||__|_|__|_|__||  | 
-| /  __?__?__=___  \ | 
+| / __?__?__=_____ \ | 
 |/__________________\|";
             asdLevel = 111;
             gameLevel = 1.1;
@@ -305,12 +305,20 @@ Noooooooooooooooooo!""";
 
         public StringBuilder Randomizer(StringBuilder stringBuild)
         {
+            List<char> randSigns = new List<char>();
+            List<int> randNums = new List<int>();
             Random randNum = new Random();
-            int levelInt = (int)gameLevel;
 
-            stringBuild.Replace(" ", randNum.Next(0, levelInt + 1).ToString(), 83, 1);
-            stringBuild.Replace(" ", randNum.Next(0, levelInt + 1).ToString(), 88, 1);
-            stringBuild.Replace(" ", randNum.Next(0, levelInt + 1).ToString(), 93, 1);
+            int levelInt = (int)Math.Pow(Math.Abs(gameLevel), Math.Abs(gameLevel)) * 3;
+
+            
+            for (int i = 0; i < 10; i++)
+            {
+                randNums.Add(randNum.Next(0, levelInt + 1));
+            }
+            stringBuild.Replace(" ", randNums[0].ToString(), 83, 1);
+            stringBuild.Replace(" ", randNums[1].ToString(), 88, 1);
+            stringBuild.Replace(" ", randNums[2].ToString(), 93, 1);
 
             return stringBuild;
         }
