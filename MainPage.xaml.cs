@@ -268,13 +268,13 @@ the mighty Math Mage!
 Noooooooooooooooooo!""";
             room = @"
  ____________________  
-|\ Goal: 3-6        /| 
+|\                  /| 
 | \ ______________ / | 
 |  |              |  | 
 |  | __   __   __ |  | 
 |  ||. | |. | |. ||  | 
 |  ||__|_|__|_|__||  | 
-| / __?__?__=_____ \ | 
+| / _?_?_?_?_?_=__ \ | 
 |/__________________\|";
             asdLevel = 111;
             gameLevel = 1.1;
@@ -309,17 +309,77 @@ Noooooooooooooooooo!""";
             List<int> randNums = new List<int>();
             Random randNum = new Random();
 
-            int levelInt = (int)Math.Pow(Math.Abs(gameLevel), Math.Abs(gameLevel)) * 3;
+            int levelInt = (int)Math.Abs(gameLevel) * 3;
 
-            
-            for (int i = 0; i < 10; i++)
+            switch (levelInt)
             {
-                randNums.Add(randNum.Next(0, levelInt + 1));
+                //case 3:
+                //    stringBuild.Replace("   ", "3-6", 36, 3);
+                //    break;
+                //case 24:
+                //    stringBuild.Replace("     ", "24-48", 36, 5);
+                //    break;
+                //case 81:
+                //    stringBuild.Replace("      ", "81-162", 36, 6);
+                //    break;
+                //case 192:
+                //    stringBuild.Replace("       ", "192-384", 36, 7);
+                //    break;
+                //case 375:
+                //    stringBuild.Replace("       ", "375-750", 36, 7);
+                //    break;
+                //case 648:
+                //    stringBuild.Replace("        ", "648-1256", 36, 8);
+                //    break;
+                //case 1029:
+                //    stringBuild.Replace("         ", "1029-2058", 36, 9);
+                //    break;
+                //case 1536:
+                //    stringBuild.Replace("         ", "1536-3042", 36, 9);
+                //    break;
+                //case 2187:
+                //    stringBuild.Replace("         ", "2187-4374", 36, 9);
+                //    break;
+                //case 3000:
+                //    stringBuild.Replace("         ", "3000-6000", 36, 9);
+                //    break;
+                //case 3993:
+                //    stringBuild.Replace("         ", "3993-7986", 36, 9);
+                //    break;
+                //case 5184:
+                //    stringBuild.Replace("          ", "5184-10368", 36, 10);
+                //    break;
+                case 3:
+                    stringBuild.Replace("_", "3", 88, 1);
+                    break;
             }
+
+            for (int i = 0; i < 3; i++)
+            {
+                switch (randNum.Next(0, 4))
+                {
+                    case 0:
+                        randSigns.Add('+');
+                        break;
+                    case 1:
+                        randSigns.Add('-');
+                        break;
+                    case 2:
+                        randSigns.Add('×');
+                        break;
+                    case 3:
+                        randSigns.Add('÷');
+                        break;
+                }
+                randNums.Add(randNum.Next(0, 10));
+            }
+            stringBuild.Replace(" ", randSigns[0].ToString(), 82, 1);
+            stringBuild.Replace(" ", randSigns[1].ToString(), 87, 1);
+            stringBuild.Replace(" ", randSigns[2].ToString(), 92, 1);
             stringBuild.Replace(" ", randNums[0].ToString(), 83, 1);
             stringBuild.Replace(" ", randNums[1].ToString(), 88, 1);
             stringBuild.Replace(" ", randNums[2].ToString(), 93, 1);
-
+            
             return stringBuild;
         }
         private void LevelMath(double level)
@@ -360,7 +420,7 @@ Noooooooooooooooooo!""";
 
                     break;
                 case 3.1:
-
+                    Randomizer(roomStringBuilder);
                     break;
                 case 3.2:
 
@@ -405,7 +465,7 @@ Noooooooooooooooooo!""";
 
                     break;
                 case 6.1:
-
+                    Randomizer(roomStringBuilder);
                     break;
                 case 6.2:
 
