@@ -277,7 +277,7 @@ Noooooooooooooooooo!""";
 | / _?_?_?_?_?_=__ \ | 
 |/__________________\|";
             asdLevel = 111;
-            gameLevel = 1.1;
+            gameLevel = 9.1;
             Page_Loaded(null, null);
         }
         private void DisplayScrollViewer_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -356,22 +356,102 @@ Noooooooooooooooooo!""";
 
             for (int i = 0; i < 3; i++)
             {
-                switch (randNum.Next(0, 4))
+                if (levelInt == 3 || levelInt == 6)
                 {
-                    case 0:
-                        randSigns.Add('+');
-                        break;
-                    case 1:
-                        randSigns.Add('-');
-                        break;
-                    case 2:
-                        randSigns.Add('×');
-                        break;
-                    case 3:
-                        randSigns.Add('÷');
-                        break;
+                    switch (randNum.Next(0, 2))
+                    {
+                        case 0:
+                            randSigns.Add('+');
+                            break;
+                        case 1:
+                            randSigns.Add('-');
+                            break;
+                    }
+                    randNums.Add(randNum.Next(0, 5));
                 }
-                randNums.Add(randNum.Next(0, 10));
+                else if (levelInt == 9 || levelInt == 12)
+                {
+                    switch (randNum.Next(0, 2))
+                    {
+                        case 0:
+                            randSigns.Add('+');
+                            break;
+                        case 1:
+                            randSigns.Add('-');
+                            break;
+                    }
+                    randNums.Add(randNum.Next(0, 6));
+                }
+                else if (levelInt == 15 || levelInt == 18)
+                {
+                    switch (randNum.Next(0, 3))
+                    {
+                        case 0:
+                            randSigns.Add('+');
+                            break;
+                        case 1:
+                            randSigns.Add('-');
+                            break;
+                        case 2:
+                            randSigns.Add('×');
+                            break;
+                    }
+                    randNums.Add(randNum.Next(0, 7));
+                }
+                else if (levelInt == 21 || levelInt == 24)
+                {
+                    switch (randNum.Next(0, 3))
+                    {
+                        case 0:
+                            randSigns.Add('+');
+                            break;
+                        case 1:
+                            randSigns.Add('-');
+                            break;
+                        case 2:
+                            randSigns.Add('×');
+                            break;
+                    }
+                    randNums.Add(randNum.Next(0, 8));
+                }
+                else if (levelInt == 27 || levelInt == 30)
+                {
+                    switch (randNum.Next(0, 4))
+                    {
+                        case 0:
+                            randSigns.Add('+');
+                            break;
+                        case 1:
+                            randSigns.Add('-');
+                            break;
+                        case 2:
+                            randSigns.Add('×');
+                            break;
+                        case 3:
+                            randSigns.Add('÷');
+                            break;
+                    }
+                    randNums.Add(randNum.Next(0, 9));
+                }
+                else if (levelInt == 33 || levelInt == 36)
+                {
+                    switch (randNum.Next(0, 4))
+                    {
+                        case 0:
+                            randSigns.Add('+');
+                            break;
+                        case 1:
+                            randSigns.Add('-');
+                            break;
+                        case 2:
+                            randSigns.Add('×');
+                            break;
+                        case 3:
+                            randSigns.Add('÷');
+                            break;
+                    }
+                    randNums.Add(randNum.Next(0, 10));
+                }
             }
             stringBuild.Replace(" ", randSigns[0].ToString(), 82, 1);
             stringBuild.Replace(" ", randSigns[1].ToString(), 87, 1);
@@ -390,184 +470,66 @@ Noooooooooooooooooo!""";
             switch (level)
             {
                 case 1.1:
-                    Randomizer(roomStringBuilder);
-                    break;
                 case 1.2:
-
-                    break;
                 case 1.3:
-
-                    break;
                 case 1.4:
-
-                    break;
                 case 1.5:
-
-                    break;
                 case 2.1:
-
-                    break;
                 case 2.2:
-
-                    break;
                 case 2.3:
-
-                    break;
                 case 2.4:
-
-                    break;
                 case 2.5:
-
-                    break;
                 case 3.1:
-                    Randomizer(roomStringBuilder);
-                    break;
                 case 3.2:
-
-                    break;
                 case 3.3:
-
-                    break;
                 case 3.4:
-
-                    break;
                 case 3.5:
-
-                    break;
                 case 4.1:
-
-                    break;
                 case 4.2:
-
-                    break;
                 case 4.3:
-
-                    break;
                 case 4.4:
-
-                    break;
                 case 4.5:
-
-                    break;
                 case 5.1:
-
-                    break;
                 case 5.2:
-
-                    break;
                 case 5.3:
-
-                    break;
                 case 5.4:
-
-                    break;
                 case 5.5:
-
-                    break;
                 case 6.1:
-                    Randomizer(roomStringBuilder);
-                    break;
                 case 6.2:
-
-                    break;
                 case 6.3:
-
-                    break;
                 case 6.4:
-
-                    break;
                 case 6.5:
-
-                    break;
                 case 7.1:
-
-                    break;
                 case 7.2:
-
-                    break;
                 case 7.3:
-
-                    break;
                 case 7.4:
-
-                    break;
                 case 7.5:
-
-                    break;
                 case 8.1:
-
-                    break;
                 case 8.2:
-
-                    break;
                 case 8.3:
-
-                    break;
                 case 8.4:
-
-                    break;
                 case 8.5:
-
-                    break;
                 case 9.1:
-
-                    break;
                 case 9.2:
-
-                    break;
                 case 9.3:
-
-                    break;
                 case 9.4:
-
-                    break;
                 case 9.5:
-
-                    break;
                 case 10.1:
-
-                    break;
                 case 10.2:
-
-                    break;
                 case 10.3:
-
-                    break;
                 case 10.4:
-
-                    break;
                 case 10.5:
-
-                    break;
                 case 11.1:
-
-                    break;
                 case 11.2:
-
-                    break;
                 case 11.3:
-
-                    break;
                 case 11.4:
-
-                    break;
                 case 11.5:
-
-                    break;
                 case 12.1:
-
-                    break;
                 case 12.2:
-
-                    break;
                 case 12.3:
-
-                    break;
                 case 12.4:
-
-                    break;
                 case 12.5:
-
+                    Randomizer(roomStringBuilder);
                     break;
             }
 
