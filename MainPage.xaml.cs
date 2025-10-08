@@ -302,11 +302,9 @@ Noooooooooooooooooo!""";
 
             return asciiStringBuilder.ToString();
         }
-
-        public StringBuilder Randomizer(StringBuilder stringBuild)
+        public StringBuilder RoomNumbers(StringBuilder stringBuild)
         {
-            List<char> randSigns = new List<char>();
-            List<int> randNums = new List<int>();
+            List<string> randNums = new List<string>();
             Random randNum = new Random();
 
             int levelInt = ((int)Math.Abs(gameLevel) - 1) * 6 + 12;
@@ -477,8 +475,23 @@ Noooooooooooooooooo!""";
 
             for (int i = 0; i < 10; i++)
             {
-                randNums.Add(randNum.Next(0, 10));
-                stringBuild.Replace("_", randNums[i].ToString(), 181 + i + i, 1);
+                randNums.Add(randNum.Next(0, 10).ToString());
+                stringBuild.Replace("_", randNums[i], 181 + i + i, 1);
+            }
+
+            return stringBuild;
+        }
+        private StringBuilder MathSigns(StringBuilder stringBuild)
+        {
+            string[] allSigns = { "+", "-", "×", "÷" };
+            Random rand = new Random();
+            var selectedSigns = allSigns.OrderBy(x => rand.Next()).Take(3).ToList();
+
+            if (stringBuild.Length > 93)
+            {
+                stringBuild.Remove(83, 1).Insert(83, selectedSigns[0]);
+                stringBuild.Remove(88, 1).Insert(88, selectedSigns[1]);
+                stringBuild.Remove(93, 1).Insert(93, selectedSigns[2]);
             }
 
             return stringBuild;
@@ -550,7 +563,8 @@ Noooooooooooooooooo!""";
                 case 12.3:
                 case 12.4:
                 case 12.5:
-                    Randomizer(roomStringBuilder);
+                    RoomNumbers(roomStringBuilder);
+                    MathSigns(roomStringBuilder);
                     break;
             }
 
