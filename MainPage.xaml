@@ -46,7 +46,7 @@
                     <Button.Content>
                         <Canvas Width="30" Height="30">
                             <TextBlock x:Name="DButtonText" Text="Options" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
-                            <TextBlock x:Name="DButtonSymbol" Text="¼" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
+                            <TextBlock x:Name="DButtonSymbol" Text="@" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
                             <TextBlock x:Name="DButtonHotkey" Text="D" FontSize="9" FontWeight="Bold" Canvas.Left="0" Canvas.Top="0"/>
                         </Canvas>
                     </Button.Content>

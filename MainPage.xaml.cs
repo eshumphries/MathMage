@@ -277,7 +277,7 @@ Noooooooooooooooooo!""";
 | /   0 ? _ =      \ | 
 |/__________________\|";
             asdLevel = 111;
-            gameLevel = 1.1;
+            gameLevel = 0;
             Page_Loaded(null, null);
         }
         private void DisplayScrollViewer_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -321,304 +321,115 @@ Noooooooooooooooooo!""";
             }
 
             int levelInt = ((int)Math.Abs(gameLevel) - 1) * 6 + 12;
-            stringBuild.Remove(191, 2).Insert(190, levelInt.ToString());
+            stringBuild.Remove(191, 2).Insert(191, levelInt.ToString());
 
             return stringBuild;
         }
-        private void LevelMath(double level)
-        {
-            StringBuilder roomStringBuilder = new StringBuilder();
-            roomStringBuilder.Append(room);
 
-            switch (level)
-            {
-                case 1.1:
-                case 2.1:
-                case 3.1:
-                case 4.1:
-                case 5.1:
-                case 6.1:
-                case 7.1:
-                case 8.1:
-                case 9.1:
-                case 10.1:
-                case 11.1:
-                case 12.1:
-                    Randomizer(roomStringBuilder);
-                    break;
-            }
-
-            room = roomStringBuilder.ToString();
-        }
         public void DisplayLevel(double level)
         {
-            string levelGraphics = "";
+            StringBuilder roomStringBuilder = new StringBuilder();
 
             switch (level)
             {
                 case 0.1:
-                    levelGraphics = mageIntro1;
+                    roomStringBuilder.Append(mageIntro1);
                     break;
                 case 0.2:
-                    levelGraphics = mageIntro2;
+                    roomStringBuilder.Append(mageIntro2);
                     break;
                 case 1.0:
-                    levelGraphics = spiderSpeech1;
-                    break;
-                case 1.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(spiderSpeech1);
                     break;
                 case 1.2:
-                    levelGraphics = room;
-                    break;
-                case 1.3:
-                    levelGraphics = room;
-                    break;
-                case 1.4:
-                    levelGraphics = room;
-                    break;
-                case 1.5:
-                    levelGraphics = room;
-                    break;
-                case 1.6:
-                    levelGraphics = spiderSpeech2;
+                    roomStringBuilder.Append(spiderSpeech2);
                     break;
                 case 2.0:
-                    levelGraphics = snakeSpeech1;
-                    break;
-                case 2.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(snakeSpeech1);
                     break;
                 case 2.2:
-                    levelGraphics = room;
-                    break;
-                case 2.3:
-                    levelGraphics = room;
-                    break;
-                case 2.4:
-                    levelGraphics = room;
-                    break;
-                case 2.5:
-                    levelGraphics = room;
-                    break;
-                case 2.6:
-                    levelGraphics = snakeSpeech2;
+                    roomStringBuilder.Append(snakeSpeech2);
                     break;
                 case 3.0:
-                    levelGraphics = batSpeech1;
-                    break;
-                case 3.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(batSpeech1);
                     break;
                 case 3.2:
-                    levelGraphics = room;
-                    break;
-                case 3.3:
-                    levelGraphics = room;
-                    break;
-                case 3.4:
-                    levelGraphics = room;
-                    break;
-                case 3.5:
-                    levelGraphics = room;
-                    break;
-                case 3.6:
-                    levelGraphics = batSpeech2;
+                    roomStringBuilder.Append(batSpeech2);
                     break;
                 case 4.0:
-                    levelGraphics = blobSpeech1;
-                    break;
-                case 4.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(blobSpeech1);
                     break;
                 case 4.2:
-                    levelGraphics = room;
-                    break;
-                case 4.3:
-                    levelGraphics = room;
-                    break;
-                case 4.4:
-                    levelGraphics = room;
-                    break;
-                case 4.5:
-                    levelGraphics = room;
-                    break;
-                case 4.6:
-                    levelGraphics = blobSpeech2;
+                    roomStringBuilder.Append(blobSpeech2);
                     break;
                 case 5.0:
-                    levelGraphics = goblinSpeech1;
-                    break;
-                case 5.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(goblinSpeech1);
                     break;
                 case 5.2:
-                    levelGraphics = room;
-                    break;
-                case 5.3:
-                    levelGraphics = room;
-                    break;
-                case 5.4:
-                    levelGraphics = room;
-                    break;
-                case 5.5:
-                    levelGraphics = room;
-                    break;
-                case 5.6:
-                    levelGraphics = goblinSpeech2;
+                    roomStringBuilder.Append(goblinSpeech2);
                     break;
                 case 6.0:
-                    levelGraphics = ghostSpeech1;
-                    break;
-                case 6.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(ghostSpeech1);
                     break;
                 case 6.2:
-                    levelGraphics = room;
-                    break;
-                case 6.3:
-                    levelGraphics = room;
-                    break;
-                case 6.4:
-                    levelGraphics = room;
-                    break;
-                case 6.5:
-                    levelGraphics = room;
-                    break;
-                case 6.6:
-                    levelGraphics = ghostSpeech2;
+                    roomStringBuilder.Append(ghostSpeech2);
                     break;
                 case 7.0:
-                    levelGraphics = skeletonSpeech1;
-                    break;
-                case 7.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(skeletonSpeech1);
                     break;
                 case 7.2:
-                    levelGraphics = room;
-                    break;
-                case 7.3:
-                    levelGraphics = room;
-                    break;
-                case 7.4:
-                    levelGraphics = room;
-                    break;
-                case 7.5:
-                    levelGraphics = room;
-                    break;
-                case 7.6:
-                    levelGraphics = skeletonSpeech2;
+                    roomStringBuilder.Append(skeletonSpeech2);
                     break;
                 case 8.0:
-                    levelGraphics = mawSpeech1;
-                    break;
-                case 8.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(mawSpeech1);
                     break;
                 case 8.2:
-                    levelGraphics = room;
-                    break;
-                case 8.3:
-                    levelGraphics = room;
-                    break;
-                case 8.4:
-                    levelGraphics = room;
-                    break;
-                case 8.5:
-                    levelGraphics = room;
-                    break;
-                case 8.6:
-                    levelGraphics = mawSpeech2;
+                    roomStringBuilder.Append(mawSpeech2);
                     break;
                 case 9.0:
-                    levelGraphics = knightSpeech1;
-                    break;
-                case 9.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(knightSpeech1);
                     break;
                 case 9.2:
-                    levelGraphics = room;
-                    break;
-                case 9.3:
-                    levelGraphics = room;
-                    break;
-                case 9.4:
-                    levelGraphics = room;
-                    break;
-                case 9.5:
-                    levelGraphics = room;
-                    break;
-                case 9.6:
-                    levelGraphics = knightSpeech2;
+                    roomStringBuilder.Append(knightSpeech2);
                     break;
                 case 10.0:
-                    levelGraphics = trollSpeech1;
-                    break;
-                case 10.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(trollSpeech1);
                     break;
                 case 10.2:
-                    levelGraphics = room;
-                    break;
-                case 10.3:
-                    levelGraphics = room;
-                    break;
-                case 10.4:
-                    levelGraphics = room;
-                    break;
-                case 10.5:
-                    levelGraphics = room;
-                    break;
-                case 10.6:
-                    levelGraphics = trollSpeech2;
+                    roomStringBuilder.Append(trollSpeech2);
                     break;
                 case 11.0:
-                    levelGraphics = golemSpeech1;
-                    break;
-                case 11.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(golemSpeech1);
                     break;
                 case 11.2:
-                    levelGraphics = room;
-                    break;
-                case 11.3:
-                    levelGraphics = room;
-                    break;
-                case 11.4:
-                    levelGraphics = room;
-                    break;
-                case 11.5:
-                    levelGraphics = room;
-                    break;
-                case 11.6:
-                    levelGraphics = golemSpeech2;
+                    roomStringBuilder.Append(golemSpeech1);
                     break;
                 case 12.0:
-                    levelGraphics = mageSpeech1;
-                    break;
-                case 12.1:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(mageSpeech1);
                     break;
                 case 12.2:
-                    levelGraphics = room;
+                    roomStringBuilder.Append(mageSpeech2);
                     break;
-                case 12.3:
-                    levelGraphics = room;
-                    break;
-                case 12.4:
-                    levelGraphics = room;
-                    break;
-                case 12.5:
-                    levelGraphics = room;
-                    break;
-                case 12.6:
-                    levelGraphics = mageSpeech2;
+                case 1.1:
+                case 2.1:
+                case 3.1:
+                case 4.1:
+                case 5.1:
+                case 6.1:
+                case 7.1:
+                case 8.1:
+                case 9.1:
+                case 10.1:
+                case 11.1:
+                case 12.1:
+                    roomStringBuilder.Append(room);
+                    Randomizer(roomStringBuilder);
                     break;
             }
 
-            LevelMath(gameLevel);
-            GraphicsTextBlock.Text = StringCorrector(levelGraphics);
+            GraphicsTextBlock.Text = StringCorrector(roomStringBuilder.ToString());
         }
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Window.Current.KeyDown += Current_KeyDown;
@@ -646,7 +457,11 @@ Noooooooooooooooooo!""";
             switch (asdLevel)
             {
                 case 111:
-                    DisplayLevel(0.1);
+                    DisplayLevel(gameLevel = 0.1);
+                    AButtonText.Text = "Continue";
+                    SButton.Visibility = Visibility.Collapsed;
+                    DButton.Visibility = Visibility.Collapsed;
+                    asdLevel += 100;
                     break;
                 case 112:
 
@@ -673,7 +488,23 @@ Noooooooooooooooooo!""";
 
                     break;
                 case 211:
-
+                    if (gameLevel == 0.1)
+                    {
+                        DisplayLevel(gameLevel = 0.2);
+                    }
+                    else if (gameLevel == 0.2)
+                    {
+                        DisplayLevel(gameLevel = 1.1);
+                        AButtonText.Text = "Left";
+                        AButtonSymbol.Text = "3";
+                        SButton.Visibility = Visibility.Visible;
+                        SButtonText.Text = "Middle";
+                        SButtonSymbol.Text = "5";
+                        DButton.Visibility = Visibility.Visible;
+                        DButtonText.Text = "Right";
+                        DButtonSymbol.Text = "4";
+                        asdLevel += 100;
+                    }
                     break;
                 case 212:
 
@@ -724,8 +555,6 @@ Noooooooooooooooooo!""";
 
                     break;
             }
-
-            asdLevel += 100;
         }
         private void SButton_Click(object sender, RoutedEventArgs e)
         {
