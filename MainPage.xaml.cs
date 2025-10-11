@@ -277,7 +277,7 @@ Noooooooooooooooooo!""";
 | /   0 ? _ =      \ | 
 |/__________________\|";
             asdLevel = 111;
-            gameLevel = 0;
+            gameLevel = 1.1;
             Page_Loaded(null, null);
         }
         private void DisplayScrollViewer_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -322,6 +322,34 @@ Noooooooooooooooooo!""";
 
             int levelInt = ((int)Math.Abs(gameLevel) - 1) * 6 + 12;
             stringBuild.Remove(191, 2).Insert(191, levelInt.ToString());
+
+            return stringBuild;
+        }
+        public StringBuilder LevelMath(StringBuilder stringBuild)
+        {
+            string mathSign = stringBuild.ToString().Substring(82, 1);
+            int firstNumber = Convert.ToInt32(stringBuild.ToString().Substring(181, 3).Trim());
+            int secondNumber = Convert.ToInt32(stringBuild.ToString().Substring(83, 1));
+            int result;
+
+            switch (mathSign)
+            {
+                case "+":
+                    result = firstNumber + secondNumber;
+                    break;
+                case "-":
+                    result = firstNumber - secondNumber;
+                    break;
+                case "×":
+                    result = firstNumber * secondNumber;
+                    break;
+                case "÷":
+                    result = firstNumber / secondNumber;
+                    break;
+            }
+
+            stringBuild.Remove(185, 1).Insert(185, mathSign);
+            stringBuild.Remove(187, 1).Insert(187, secondNumber);
 
             return stringBuild;
         }
@@ -424,6 +452,7 @@ Noooooooooooooooooo!""";
                 case 12.1:
                     roomStringBuilder.Append(room);
                     Randomizer(roomStringBuilder);
+                    LevelMath(roomStringBuilder);
                     break;
             }
 
