@@ -277,7 +277,7 @@ Noooooooooooooooooo!""";
 | /   0 ? _ =      \ | 
 |/__________________\|";
             asdLevel = 111;
-            gameLevel = 1.1;
+            gameLevel = 0;
             Page_Loaded(null, null);
         }
         private void DisplayScrollViewer_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -321,16 +321,41 @@ Noooooooooooooooooo!""";
             }
 
             int levelInt = ((int)Math.Abs(gameLevel) - 1) * 6 + 12;
-            stringBuild.Remove(191, 2).Insert(191, levelInt.ToString());
+
+            if (levelInt.ToString().Length == 2)
+                stringBuild.Remove(37, 2).Insert(37, levelInt.ToString());
+            else if (levelInt.ToString().Length == 3)
+                stringBuild.Remove(36, 3).Insert(36, levelInt.ToString());
 
             return stringBuild;
         }
-        public StringBuilder LevelMath(StringBuilder stringBuild)
+        public StringBuilder LevelMath(StringBuilder stringBuild, object sender = null)
         {
-            string mathSign = stringBuild.ToString().Substring(82, 1);
-            int firstNumber = Convert.ToInt32(stringBuild.ToString().Substring(181, 3).Trim());
-            int secondNumber = Convert.ToInt32(stringBuild.ToString().Substring(83, 1));
-            int result;
+            //string mathSign = stringBuild.ToString().Substring(82, 1);
+            //int firstNumber = Convert.ToInt32(stringBuild.ToString().Substring(181, 3).Trim());
+            //int secondNumber = Convert.ToInt32(stringBuild.ToString().Substring(83, 1));
+            //int result;
+
+            string mathSign = "";
+            int firstNumber = 0;
+            int secondNumber = 0;
+            int result = 0;
+
+            if (sender == AButton)
+            {
+                mathSign = stringBuild.ToString().Substring(82, 1);
+                secondNumber = Convert.ToInt32(stringBuild.ToString().Substring(83, 1));
+            }
+            else if (sender == SButton)
+            {
+                mathSign = stringBuild.ToString().Substring(87, 1);
+                secondNumber = Convert.ToInt32(stringBuild.ToString().Substring(88, 1));
+            }
+            else if (sender == DButton)
+            {
+                mathSign = stringBuild.ToString().Substring(92, 1);
+                secondNumber = Convert.ToInt32(stringBuild.ToString().Substring(93, 1));
+            }
 
             switch (mathSign)
             {
@@ -348,13 +373,17 @@ Noooooooooooooooooo!""";
                     break;
             }
 
-            stringBuild.Remove(185, 1).Insert(185, mathSign);
-            stringBuild.Remove(187, 1).Insert(187, secondNumber);
+            if (sender != null)
+            {
+                stringBuild.Remove(185, 1).Insert(185, mathSign);
+                stringBuild.Remove(188 - secondNumber.ToString().Length, secondNumber.ToString().Length).Insert(188 - secondNumber.ToString().Length, secondNumber);
+                stringBuild.Remove(191, result.ToString().Length).Insert(191, result);
+            }
 
             return stringBuild;
         }
 
-        public void DisplayLevel(double level)
+        public void DisplayLevel(double level, object sender = null)
         {
             StringBuilder roomStringBuilder = new StringBuilder();
 
@@ -452,7 +481,7 @@ Noooooooooooooooooo!""";
                 case 12.1:
                     roomStringBuilder.Append(room);
                     Randomizer(roomStringBuilder);
-                    LevelMath(roomStringBuilder);
+                    LevelMath(roomStringBuilder, sender);
                     break;
             }
 
@@ -462,21 +491,23 @@ Noooooooooooooooooo!""";
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Window.Current.KeyDown += Current_KeyDown;
-            DisplayLevel(gameLevel);
+            DisplayLevel(gameLevel, null);
         }
 
         private void Current_KeyDown(object sender, KeyRoutedEventArgs e)
         {
+            e.Handled = true;
+
             switch (e.Key)
             {
                 case VirtualKey.A:
-                    AButton_Click(AButton, null);
+                    Dispatcher.BeginInvoke(() => AButton_Click(AButton, new RoutedEventArgs()));
                     break;
                 case VirtualKey.S:
-                    SButton_Click(SButton, null);
+                    Dispatcher.BeginInvoke(() => SButton_Click(SButton, new RoutedEventArgs()));
                     break;
                 case VirtualKey.D:
-                    DButton_Click(DButton, null);
+                    Dispatcher.BeginInvoke(() => DButton_Click(DButton, new RoutedEventArgs()));
                     break;
             }
         }
@@ -523,7 +554,49 @@ Noooooooooooooooooo!""";
                     }
                     else if (gameLevel == 0.2)
                     {
-                        DisplayLevel(gameLevel = 1.1);
+                        DisplayLevel(gameLevel = 1.0);
+                    }
+                    else if (gameLevel % 1.0 == 0)
+                    {
+                        switch (gameLevel)
+                        {
+                            case 1.0:
+                                DisplayLevel(gameLevel = 1.1);
+                                break;
+                            case 2.0:
+                                DisplayLevel(gameLevel = 2.1);
+                                break;
+                            case 3.0:
+                                DisplayLevel(gameLevel = 3.1);
+                                break;
+                            case 4.0:
+                                DisplayLevel(gameLevel = 4.1);
+                                break;
+                            case 5.0:
+                                DisplayLevel(gameLevel = 5.1);
+                                break;
+                            case 6.0:
+                                DisplayLevel(gameLevel = 6.1);
+                                break;
+                            case 7.0:
+                                DisplayLevel(gameLevel = 7.1);
+                                break;
+                            case 8.0:
+                                DisplayLevel(gameLevel = 8.1);
+                                break;
+                            case 9.0:
+                                DisplayLevel(gameLevel = 9.1);
+                                break;
+                            case 10.0:
+                                DisplayLevel(gameLevel = 10.1);
+                                break;
+                            case 11.0:
+                                DisplayLevel(gameLevel = 11.1);
+                                break;
+                            case 12.0:
+                                DisplayLevel(gameLevel = 12.1);
+                                break;
+                        }
                         AButtonText.Text = "Left";
                         AButtonSymbol.Text = "3";
                         SButton.Visibility = Visibility.Visible;
@@ -557,7 +630,53 @@ Noooooooooooooooooo!""";
 
                     break;
                 case 311:
-
+                    DisplayLevel(gameLevel, sender);
+                    //if (gameLevel % 1.1 == 0)
+                    //{
+                    //    switch (gameLevel)
+                    //    {
+                    //        case 1.1:
+                    //            DisplayLevel(gameLevel = 1.2);
+                    //            break;
+                    //        case 2.1:
+                    //            DisplayLevel(gameLevel = 2.2);
+                    //            break;
+                    //        case 3.1:
+                    //            DisplayLevel(gameLevel = 3.2);
+                    //            break;
+                    //        case 4.1:
+                    //            DisplayLevel(gameLevel = 4.2);
+                    //            break;
+                    //        case 5.1:
+                    //            DisplayLevel(gameLevel = 5.2);
+                    //            break;
+                    //        case 6.1:
+                    //            DisplayLevel(gameLevel = 6.2);
+                    //            break;
+                    //        case 7.1:
+                    //            DisplayLevel(gameLevel = 7.2);
+                    //            break;
+                    //        case 8.1:
+                    //            DisplayLevel(gameLevel = 8.2);
+                    //            break;
+                    //        case 9.1:
+                    //            DisplayLevel(gameLevel = 9.2);
+                    //            break;
+                    //        case 10.1:
+                    //            DisplayLevel(gameLevel = 10.2);
+                    //            break;
+                    //        case 11.1:
+                    //            DisplayLevel(gameLevel = 11.2);
+                    //            break;
+                    //        case 12.1:
+                    //            DisplayLevel(gameLevel = 12.2);
+                    //            break;
+                    //    }
+                    //}
+                    //AButtonText.Text = "Continue";
+                    //SButton.Visibility = Visibility.Collapsed;
+                    //DButton.Visibility = Visibility.Collapsed;
+                    //asdLevel -= 100;
                     break;
                 case 312:
 
@@ -641,7 +760,7 @@ Noooooooooooooooooo!""";
 
                     break;
                 case 311:
-
+                    DisplayLevel(gameLevel, sender);
                     break;
                 case 312:
 
@@ -727,7 +846,7 @@ Noooooooooooooooooo!""";
 
                     break;
                 case 311:
-
+                    DisplayLevel(gameLevel, sender);
                     break;
                 case 312:
 
