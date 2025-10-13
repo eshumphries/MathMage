@@ -15,7 +15,7 @@ namespace MathMage
     {
         public string mageIntro1, mageIntro2, spiderSpeech1, spiderSpeech2, snakeSpeech1, snakeSpeech2, batSpeech1, batSpeech2, blobSpeech1, blobSpeech2, goblinSpeech1, goblinSpeech2, ghostSpeech1, ghostSpeech2, skeletonSpeech1, skeletonSpeech2, mawSpeech1, mawSpeech2, knightSpeech1, knightSpeech2, trollSpeech1, trollSpeech2, golemSpeech1, golemSpeech2, mageSpeech1, mageSpeech2, room;
         public double gameLevel;
-        public int asdLevel;
+        public int asdLevel, mathResult;
         public MainPage()
         {
             InitializeComponent();
@@ -274,9 +274,10 @@ Noooooooooooooooooo!""";
 |  | __   __   __ |  | 
 |  ||. | |. | |. ||  | 
 |  ||__|_|__|_|__||  | 
-| /   0 ? _ =      \ | 
+| /         =      \ | 
 |/__________________\|";
             asdLevel = 111;
+            mathResult = 0;
             gameLevel = 0;
             Page_Loaded(null, null);
         }
@@ -312,6 +313,9 @@ Noooooooooooooooooo!""";
 
             if (stringBuild.Length > 93)
             {
+                stringBuild.Remove(184 - mathResult.ToString().Length, mathResult.ToString().Length).Insert(184 - mathResult.ToString().Length, mathResult);
+                stringBuild.Remove(185, 1).Insert(185, "?");
+                stringBuild.Remove(187, 1).Insert(187, "_");
                 stringBuild.Remove(82, 1).Insert(82, selectedSigns[0]);
                 stringBuild.Remove(87, 1).Insert(87, selectedSigns[1]);
                 stringBuild.Remove(92, 1).Insert(92, selectedSigns[2]);
@@ -337,9 +341,8 @@ Noooooooooooooooooo!""";
             //int result;
 
             string mathSign = "";
-            int firstNumber = 0;
+            int firstNumber = mathResult;
             int secondNumber = 0;
-            int result = 0;
 
             if (sender == AButton)
             {
@@ -360,16 +363,16 @@ Noooooooooooooooooo!""";
             switch (mathSign)
             {
                 case "+":
-                    result = firstNumber + secondNumber;
+                    mathResult = firstNumber + secondNumber;
                     break;
                 case "-":
-                    result = firstNumber - secondNumber;
+                    mathResult = firstNumber - secondNumber;
                     break;
                 case "×":
-                    result = firstNumber * secondNumber;
+                    mathResult = firstNumber * secondNumber;
                     break;
                 case "÷":
-                    result = firstNumber / secondNumber;
+                    mathResult = firstNumber / secondNumber;
                     break;
             }
 
@@ -377,7 +380,7 @@ Noooooooooooooooooo!""";
             {
                 stringBuild.Remove(185, 1).Insert(185, mathSign);
                 stringBuild.Remove(188 - secondNumber.ToString().Length, secondNumber.ToString().Length).Insert(188 - secondNumber.ToString().Length, secondNumber);
-                stringBuild.Remove(191, result.ToString().Length).Insert(191, result);
+                stringBuild.Remove(191, mathResult.ToString().Length).Insert(191, mathResult);
             }
 
             return stringBuild;
@@ -517,11 +520,27 @@ Noooooooooooooooooo!""";
             switch (asdLevel)
             {
                 case 111:
-                    DisplayLevel(gameLevel = 0.1);
-                    AButtonText.Text = "Continue";
-                    SButton.Visibility = Visibility.Collapsed;
-                    DButton.Visibility = Visibility.Collapsed;
-                    asdLevel += 100;
+                    if (gameLevel == 0)
+                    {
+                        DisplayLevel(gameLevel = 0.1);
+                        AButtonText.Text = "Continue";
+                        SButton.Visibility = Visibility.Collapsed;
+                        DButton.Visibility = Visibility.Collapsed;
+                        asdLevel += 100;
+                    }
+                    else
+                    {
+                        DisplayLevel(gameLevel);
+                        AButtonText.Text = "Left";
+                        AButtonSymbol.Text = "3";
+                        SButton.Visibility = Visibility.Visible;
+                        SButtonText.Text = "Middle";
+                        SButtonSymbol.Text = "5";
+                        DButton.Visibility = Visibility.Visible;
+                        DButtonText.Text = "Right";
+                        DButtonSymbol.Text = "4";
+                        asdLevel += 200;
+                    }
                     break;
                 case 112:
 
@@ -631,6 +650,10 @@ Noooooooooooooooooo!""";
                     break;
                 case 311:
                     DisplayLevel(gameLevel, sender);
+                    AButtonText.Text = "Continue";
+                    SButton.Visibility = Visibility.Collapsed;
+                    DButton.Visibility = Visibility.Collapsed;
+                    asdLevel -= 200;
                     //if (gameLevel % 1.1 == 0)
                     //{
                     //    switch (gameLevel)
@@ -761,6 +784,10 @@ Noooooooooooooooooo!""";
                     break;
                 case 311:
                     DisplayLevel(gameLevel, sender);
+                    AButtonText.Text = "Continue";
+                    SButton.Visibility = Visibility.Collapsed;
+                    DButton.Visibility = Visibility.Collapsed;
+                    asdLevel -= 200;
                     break;
                 case 312:
 
@@ -787,8 +814,6 @@ Noooooooooooooooooo!""";
 
                     break;
             }
-
-            asdLevel += 10;
         }
         private void DButton_Click(object sender, RoutedEventArgs e)
         {
@@ -847,6 +872,10 @@ Noooooooooooooooooo!""";
                     break;
                 case 311:
                     DisplayLevel(gameLevel, sender);
+                    AButtonText.Text = "Continue";
+                    SButton.Visibility = Visibility.Collapsed;
+                    DButton.Visibility = Visibility.Collapsed;
+                    asdLevel -= 200;
                     break;
                 case 312:
 
@@ -873,8 +902,6 @@ Noooooooooooooooooo!""";
 
                     break;
             }
-
-            asdLevel += 1;
         }
     }
 }
