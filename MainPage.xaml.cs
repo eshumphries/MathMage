@@ -341,9 +341,11 @@ Noooooooooooooooooo!""";
             int firstNumber = mathResult;
             int secondNumber = 0;
 
+            stringBuild.Remove(181, 3).Insert(181, "   ");
             stringBuild.Remove(184 - mathResult.ToString().Length, mathResult.ToString().Length).Insert(184 - mathResult.ToString().Length, mathResult);
             stringBuild.Remove(185, 1).Insert(185, "?");
             stringBuild.Remove(187, 1).Insert(187, "_");
+            stringBuild.Remove(191, 3).Insert(191, "___");
 
             if (sender == AButton)
             {
@@ -381,6 +383,7 @@ Noooooooooooooooooo!""";
             {
                 stringBuild.Remove(185, 1).Insert(185, mathSign);
                 stringBuild.Remove(188 - secondNumber.ToString().Length, secondNumber.ToString().Length).Insert(188 - secondNumber.ToString().Length, secondNumber);
+                stringBuild.Remove(191, 3).Insert(191, "   ");
                 stringBuild.Remove(191, mathResult.ToString().Length).Insert(191, mathResult);
             }
 
