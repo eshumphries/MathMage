@@ -313,9 +313,6 @@ Noooooooooooooooooo!""";
 
             if (stringBuild.Length > 93)
             {
-                stringBuild.Remove(184 - mathResult.ToString().Length, mathResult.ToString().Length).Insert(184 - mathResult.ToString().Length, mathResult);
-                stringBuild.Remove(185, 1).Insert(185, "?");
-                stringBuild.Remove(187, 1).Insert(187, "_");
                 stringBuild.Remove(82, 1).Insert(82, selectedSigns[0]);
                 stringBuild.Remove(87, 1).Insert(87, selectedSigns[1]);
                 stringBuild.Remove(92, 1).Insert(92, selectedSigns[2]);
@@ -343,6 +340,10 @@ Noooooooooooooooooo!""";
             string mathSign = "";
             int firstNumber = mathResult;
             int secondNumber = 0;
+
+            stringBuild.Remove(184 - mathResult.ToString().Length, mathResult.ToString().Length).Insert(184 - mathResult.ToString().Length, mathResult);
+            stringBuild.Remove(185, 1).Insert(185, "?");
+            stringBuild.Remove(187, 1).Insert(187, "_");
 
             if (sender == AButton)
             {
@@ -386,7 +387,7 @@ Noooooooooooooooooo!""";
             return stringBuild;
         }
 
-        public void DisplayLevel(double level, object sender = null)
+        public void DisplayLevel(double level, object sender = null, bool skipRandomizer = false)
         {
             StringBuilder roomStringBuilder = new StringBuilder();
 
@@ -483,8 +484,11 @@ Noooooooooooooooooo!""";
                 case 11.1:
                 case 12.1:
                     roomStringBuilder.Append(room);
-                    Randomizer(roomStringBuilder);
-                    LevelMath(roomStringBuilder, sender);
+                    if (!skipRandomizer)
+                        LevelMath(Randomizer(roomStringBuilder), sender);
+                    else
+                        LevelMath(roomStringBuilder, sender);
+                    room = roomStringBuilder.ToString();
                     break;
             }
 
@@ -649,7 +653,7 @@ Noooooooooooooooooo!""";
 
                     break;
                 case 311:
-                    DisplayLevel(gameLevel, sender);
+                    DisplayLevel(gameLevel, sender, skipRandomizer: true);
                     AButtonText.Text = "Continue";
                     SButton.Visibility = Visibility.Collapsed;
                     DButton.Visibility = Visibility.Collapsed;
@@ -783,7 +787,7 @@ Noooooooooooooooooo!""";
 
                     break;
                 case 311:
-                    DisplayLevel(gameLevel, sender);
+                    DisplayLevel(gameLevel, sender, skipRandomizer: true);
                     AButtonText.Text = "Continue";
                     SButton.Visibility = Visibility.Collapsed;
                     DButton.Visibility = Visibility.Collapsed;
@@ -871,7 +875,7 @@ Noooooooooooooooooo!""";
 
                     break;
                 case 311:
-                    DisplayLevel(gameLevel, sender);
+                    DisplayLevel(gameLevel, sender, skipRandomizer: true);
                     AButtonText.Text = "Continue";
                     SButton.Visibility = Visibility.Collapsed;
                     DButton.Visibility = Visibility.Collapsed;
