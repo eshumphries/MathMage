@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace MathMage
     {
         public string mageIntro1, mageIntro2, spiderSpeech1, spiderSpeech2, snakeSpeech1, snakeSpeech2, batSpeech1, batSpeech2, blobSpeech1, blobSpeech2, goblinSpeech1, goblinSpeech2, ghostSpeech1, ghostSpeech2, skeletonSpeech1, skeletonSpeech2, mawSpeech1, mawSpeech2, knightSpeech1, knightSpeech2, trollSpeech1, trollSpeech2, golemSpeech1, golemSpeech2, mageSpeech1, mageSpeech2, room;
         public double gameLevel;
-        public int asdLevel, mathResult;
+        public int asdLevel, mathResult, levelInt;
         public MainPage()
         {
             InitializeComponent();
@@ -279,6 +280,7 @@ Noooooooooooooooooo!""";
             asdLevel = 111;
             mathResult = 0;
             gameLevel = 0;
+            levelInt = 0;
             Page_Loaded(null, null);
         }
         private void DisplayScrollViewer_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -321,7 +323,7 @@ Noooooooooooooooooo!""";
                 stringBuild.Remove(93, 1).Insert(93, selectedNumbers[2]);
             }
 
-            int levelInt = ((int)Math.Abs(gameLevel) - 1) * 6 + 12;
+            levelInt = (int)Math.Abs(gameLevel) * 12;
 
             if (levelInt.ToString().Length == 2)
                 stringBuild.Remove(37, 2).Insert(37, levelInt.ToString());
@@ -332,11 +334,6 @@ Noooooooooooooooooo!""";
         }
         public StringBuilder LevelMath(StringBuilder stringBuild, object sender = null)
         {
-            //string mathSign = stringBuild.ToString().Substring(82, 1);
-            //int firstNumber = Convert.ToInt32(stringBuild.ToString().Substring(181, 3).Trim());
-            //int secondNumber = Convert.ToInt32(stringBuild.ToString().Substring(83, 1));
-            //int result;
-
             string mathSign = "";
             int firstNumber = mathResult;
             int secondNumber = 0;
@@ -394,7 +391,7 @@ Noooooooooooooooooo!""";
         {
             StringBuilder roomStringBuilder = new StringBuilder();
 
-            switch (level)
+            switch (level = Math.Round(level, 1))
             {
                 case 0.1:
                     roomStringBuilder.Append(mageIntro1);
@@ -496,6 +493,8 @@ Noooooooooooooooooo!""";
             }
 
             GraphicsTextBlock.Text = StringCorrector(roomStringBuilder.ToString());
+            Debug.WriteLine(level.ToString());
+            Debug.WriteLine(GraphicsTextBlock.Text);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -533,6 +532,11 @@ Noooooooooooooooooo!""";
                         AButtonText.Text = "Continue";
                         SButton.Visibility = Visibility.Collapsed;
                         DButton.Visibility = Visibility.Collapsed;
+                        asdLevel += 100;
+                    }
+                    else if (mathResult == levelInt)
+                    {
+                        DisplayLevel(gameLevel += 0.1);
                         asdLevel += 100;
                     }
                     else
@@ -584,45 +588,7 @@ Noooooooooooooooooo!""";
                     }
                     else if (gameLevel % 1.0 == 0)
                     {
-                        switch (gameLevel)
-                        {
-                            case 1.0:
-                                DisplayLevel(gameLevel = 1.1);
-                                break;
-                            case 2.0:
-                                DisplayLevel(gameLevel = 2.1);
-                                break;
-                            case 3.0:
-                                DisplayLevel(gameLevel = 3.1);
-                                break;
-                            case 4.0:
-                                DisplayLevel(gameLevel = 4.1);
-                                break;
-                            case 5.0:
-                                DisplayLevel(gameLevel = 5.1);
-                                break;
-                            case 6.0:
-                                DisplayLevel(gameLevel = 6.1);
-                                break;
-                            case 7.0:
-                                DisplayLevel(gameLevel = 7.1);
-                                break;
-                            case 8.0:
-                                DisplayLevel(gameLevel = 8.1);
-                                break;
-                            case 9.0:
-                                DisplayLevel(gameLevel = 9.1);
-                                break;
-                            case 10.0:
-                                DisplayLevel(gameLevel = 10.1);
-                                break;
-                            case 11.0:
-                                DisplayLevel(gameLevel = 11.1);
-                                break;
-                            case 12.0:
-                                DisplayLevel(gameLevel = 12.1);
-                                break;
-                        }
+                        DisplayLevel(gameLevel += 0.1);
                         AButtonText.Text = "Left";
                         AButtonSymbol.Text = "3";
                         SButton.Visibility = Visibility.Visible;
@@ -632,6 +598,13 @@ Noooooooooooooooooo!""";
                         DButtonText.Text = "Right";
                         DButtonSymbol.Text = "4";
                         asdLevel += 100;
+                    }
+                    else if (Math.Round(gameLevel % 1.0 - 0.2) < 0.001)
+                    {
+                        DisplayLevel(gameLevel += 0.8);
+                        AButtonText.Text = "Continue";
+                        SButton.Visibility = Visibility.Collapsed;
+                        DButton.Visibility = Visibility.Collapsed;
                     }
                     break;
                 case 212:
@@ -661,52 +634,6 @@ Noooooooooooooooooo!""";
                     SButton.Visibility = Visibility.Collapsed;
                     DButton.Visibility = Visibility.Collapsed;
                     asdLevel -= 200;
-                    //if (gameLevel % 1.1 == 0)
-                    //{
-                    //    switch (gameLevel)
-                    //    {
-                    //        case 1.1:
-                    //            DisplayLevel(gameLevel = 1.2);
-                    //            break;
-                    //        case 2.1:
-                    //            DisplayLevel(gameLevel = 2.2);
-                    //            break;
-                    //        case 3.1:
-                    //            DisplayLevel(gameLevel = 3.2);
-                    //            break;
-                    //        case 4.1:
-                    //            DisplayLevel(gameLevel = 4.2);
-                    //            break;
-                    //        case 5.1:
-                    //            DisplayLevel(gameLevel = 5.2);
-                    //            break;
-                    //        case 6.1:
-                    //            DisplayLevel(gameLevel = 6.2);
-                    //            break;
-                    //        case 7.1:
-                    //            DisplayLevel(gameLevel = 7.2);
-                    //            break;
-                    //        case 8.1:
-                    //            DisplayLevel(gameLevel = 8.2);
-                    //            break;
-                    //        case 9.1:
-                    //            DisplayLevel(gameLevel = 9.2);
-                    //            break;
-                    //        case 10.1:
-                    //            DisplayLevel(gameLevel = 10.2);
-                    //            break;
-                    //        case 11.1:
-                    //            DisplayLevel(gameLevel = 11.2);
-                    //            break;
-                    //        case 12.1:
-                    //            DisplayLevel(gameLevel = 12.2);
-                    //            break;
-                    //    }
-                    //}
-                    //AButtonText.Text = "Continue";
-                    //SButton.Visibility = Visibility.Collapsed;
-                    //DButton.Visibility = Visibility.Collapsed;
-                    //asdLevel -= 100;
                     break;
                 case 312:
 
