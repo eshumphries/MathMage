@@ -323,7 +323,7 @@ Noooooooooooooooooo!""";
                 stringBuild.Remove(93, 1).Insert(93, selectedNumbers[2]);
             }
 
-            levelInt = (int)Math.Abs(gameLevel) * 12;
+            levelInt = (int)Math.Floor(Math.Abs(gameLevel)) * 12;
 
             if (levelInt.ToString().Length == 2)
                 stringBuild.Remove(37, 2).Insert(37, levelInt.ToString());
@@ -463,7 +463,7 @@ Noooooooooooooooooo!""";
                     roomStringBuilder.Append(golemSpeech1);
                     break;
                 case 11.2:
-                    roomStringBuilder.Append(golemSpeech1);
+                    roomStringBuilder.Append(golemSpeech2);
                     break;
                 case 12.0:
                     roomStringBuilder.Append(mageSpeech1);
@@ -493,8 +493,7 @@ Noooooooooooooooooo!""";
             }
 
             GraphicsTextBlock.Text = StringCorrector(roomStringBuilder.ToString());
-            Debug.WriteLine(level.ToString());
-            Debug.WriteLine(GraphicsTextBlock.Text);
+            Debug.WriteLine($"{levelInt}\n{gameLevel}\n{GraphicsTextBlock.Text}");
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -537,6 +536,7 @@ Noooooooooooooooooo!""";
                     else if (mathResult == levelInt)
                     {
                         DisplayLevel(gameLevel += 0.1);
+                        mathResult = 0;
                         asdLevel += 100;
                     }
                     else
@@ -586,7 +586,7 @@ Noooooooooooooooooo!""";
                     {
                         DisplayLevel(gameLevel = 1.0);
                     }
-                    else if (gameLevel % 1.0 == 0)
+                    else if (Math.Round(gameLevel, 1) % 1.0 == 0)
                     {
                         DisplayLevel(gameLevel += 0.1);
                         AButtonText.Text = "Left";
