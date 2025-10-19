@@ -5,7 +5,7 @@
     xmlns:local="using:MathMage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Loaded="Page_Loaded">
+    mc:Ignorable="d" IsTabStop="True" Loaded="Page_Loaded" GotFocus="Page_GotFocus">
     <ScrollViewer x:Name="DisplayScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
         <Grid x:Name="DisplayGrid" Width="300" Height="300" RenderTransformOrigin="0.5,0.5">
             <Grid.RowDefinitions>
@@ -29,7 +29,7 @@
                         <Canvas Width="30" Height="30">
                             <TextBlock x:Name="AButtonText" Text="Play" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
                             <TextBlock x:Name="AButtonSymbol" Text="4" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
-                            <TextBlock x:Name="AButtonHotkey" Text="A" FontSize="9" FontWeight="Bold" Canvas.Left="0" Canvas.Top="0"/>
+                            <TextBlock x:Name="AButtonHotkey" Text="A" FontSize="9" FontWeight="Bold" Opacity="0" Canvas.Left="0" Canvas.Top="0"/>
                         </Canvas>
                     </Button.Content>
                 </Button>
@@ -38,7 +38,7 @@
                         <Canvas Width="30" Height="30">
                             <TextBlock x:Name="SButtonText" Text="Help" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
                             <TextBlock x:Name="SButtonSymbol" Text="s" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
-                            <TextBlock x:Name="SButtonHotkey" Text="S" FontSize="9" FontWeight="Bold" Canvas.Left="0" Canvas.Top="0"/>
+                            <TextBlock x:Name="SButtonHotkey" Text="S" FontSize="9" FontWeight="Bold" Opacity="0" Canvas.Left="0" Canvas.Top="0"/>
                         </Canvas>
                     </Button.Content>
                 </Button>
@@ -47,7 +47,7 @@
                         <Canvas Width="30" Height="30">
                             <TextBlock x:Name="DButtonText" Text="Options" FontSize="6" FontWeight="Bold" Canvas.Left="0" Canvas.Top="24"/>
                             <TextBlock x:Name="DButtonSymbol" Text="@" FontFamily="Webdings" FontSize="15" Canvas.Left="9" Canvas.Top="6"/>
-                            <TextBlock x:Name="DButtonHotkey" Text="D" FontSize="9" FontWeight="Bold" Canvas.Left="0" Canvas.Top="0"/>
+                            <TextBlock x:Name="DButtonHotkey" Text="D" FontSize="9" FontWeight="Bold" Opacity="0" Canvas.Left="0" Canvas.Top="0"/>
                         </Canvas>
                     </Button.Content>
                 </Button>

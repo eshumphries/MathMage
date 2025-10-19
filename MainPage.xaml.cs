@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using Windows.System;
@@ -500,6 +498,12 @@ Noooooooooooooooooo!""";
         {
             Window.Current.KeyDown += Current_KeyDown;
             DisplayLevel(gameLevel, null);
+        }
+        private void Page_GotFocus(object sender, RoutedEventArgs e)
+        {
+            AButtonHotkey.Opacity = 100;
+            SButtonHotkey.Opacity = 100;
+            DButtonHotkey.Opacity = 100;
         }
 
         private void Current_KeyDown(object sender, KeyRoutedEventArgs e)
