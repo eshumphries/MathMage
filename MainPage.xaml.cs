@@ -533,6 +533,7 @@ Noooooooooooooooooo!""";
                     {
                         DisplayLevel(gameLevel = 0.1);
                         AButtonText.Text = "Continue";
+                        AButtonSymbol.Text = "a";
                         SButton.Visibility = Visibility.Collapsed;
                         DButton.Visibility = Visibility.Collapsed;
                         asdLevel += 100;
@@ -607,6 +608,7 @@ Noooooooooooooooooo!""";
                     {
                         DisplayLevel(gameLevel += 0.8);
                         AButtonText.Text = "Continue";
+                        AButtonSymbol.Text = "a";
                         SButton.Visibility = Visibility.Collapsed;
                         DButton.Visibility = Visibility.Collapsed;
                     }
@@ -635,6 +637,7 @@ Noooooooooooooooooo!""";
                 case 311:
                     DisplayLevel(gameLevel, sender, skipRandomizer: true);
                     AButtonText.Text = "Continue";
+                    AButtonSymbol.Text = "a";
                     SButton.Visibility = Visibility.Collapsed;
                     DButton.Visibility = Visibility.Collapsed;
                     asdLevel -= 200;
@@ -670,7 +673,7 @@ Noooooooooooooooooo!""";
             switch (asdLevel)
             {
                 case 111:
-
+                    GraphicsTextBlock.Text = "\nThis game is designed\nto train math skills.\nEscape each of the\ndungeons by creating\na total from the\nnumbers with math\nsigns shown above\neach door.";
                     break;
                 case 112:
 
@@ -723,6 +726,7 @@ Noooooooooooooooooo!""";
                 case 311:
                     DisplayLevel(gameLevel, sender, skipRandomizer: true);
                     AButtonText.Text = "Continue";
+                    AButtonSymbol.Text = "a";
                     SButton.Visibility = Visibility.Collapsed;
                     DButton.Visibility = Visibility.Collapsed;
                     asdLevel -= 200;
@@ -811,6 +815,7 @@ Noooooooooooooooooo!""";
                 case 311:
                     DisplayLevel(gameLevel, sender, skipRandomizer: true);
                     AButtonText.Text = "Continue";
+                    AButtonSymbol.Text = "a";
                     SButton.Visibility = Visibility.Collapsed;
                     DButton.Visibility = Visibility.Collapsed;
                     asdLevel -= 200;
