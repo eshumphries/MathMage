@@ -673,7 +673,7 @@ Noooooooooooooooooo!""";
             switch (asdLevel)
             {
                 case 111:
-                    GraphicsTextBlock.Text = "\nThis game is designed\nto train math skills.\nEscape each of the\ndungeons by creating\na total from the\nnumbers with math\nsigns shown above\neach door.";
+                    GraphicsTextBlock.Text = "\nThis game is designed\nto train math skills.\nEscape each of the\ndungeons by creating\nthe total shown on\ntop in each level\nfrom the numbers with\nmath signs shown\nabove each door.";
                     break;
                 case 112:
 
