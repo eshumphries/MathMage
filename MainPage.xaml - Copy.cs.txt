@@ -15,15 +15,15 @@ namespace MathMage
         public int levels;
         public int[] totals;
         public string[] enemies;
-        public Options(int levelCount)
-        {
-            levels = levelCount;
-            totals = new int[levelCount];
-            enemies = new string[levelCount];
-        }
     }
     public partial class MainPage : Page
     {
+        Options options = new Options
+        {
+            levels = 12,
+            totals = new int[levels],
+            enemies = new string[levels]
+        };
         public string mageIntro1, mageIntro2, spiderSpeech1, spiderSpeech2, snakeSpeech1, snakeSpeech2, batSpeech1, batSpeech2, blobSpeech1, blobSpeech2, goblinSpeech1, goblinSpeech2, ghostSpeech1, ghostSpeech2, skeletonSpeech1, skeletonSpeech2, mawSpeech1, mawSpeech2, knightSpeech1, knightSpeech2, trollSpeech1, trollSpeech2, golemSpeech1, golemSpeech2, mageSpeech1, mageSpeech2, room;
         public double gameLevel;
         public int asdLevel, mathResult, levelInt;
@@ -538,8 +538,6 @@ Noooooooooooooooooo!""";
 
         private void AButton_Click(object sender, RoutedEventArgs e)
         {
-            AButton.Focus();
-
             switch (asdLevel)
             {
                 case 111:
@@ -684,8 +682,6 @@ Noooooooooooooooooo!""";
         }
         private void SButton_Click(object sender, RoutedEventArgs e)
         {
-            SButton.Focus();
-
             switch (asdLevel)
             {
                 case 111:
@@ -775,8 +771,6 @@ Noooooooooooooooooo!""";
         }
         private void DButton_Click(object sender, RoutedEventArgs e)
         {
-            DButton.Focus();
-
             switch (asdLevel)
             {
                 case 111:
